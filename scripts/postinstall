@@ -161,7 +161,7 @@ vulnerable() {
   fi
 }
 
-fix28() {
+fix28_1() {
   VUL_PATHS=(
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.3.0.0/lib/"
@@ -174,6 +174,24 @@ fix28() {
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.3.0.0/lib/log4j-1.2-api-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.3.0.0/lib/log4j-core-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.3.0.0/lib/log4j-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/log4j-core-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/log4j-api-2.13.3.jar"
+  )
+}
+
+fix28() {
+  VUL_PATHS=(
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/"
+  )
+  VUL_FILES=(
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-core-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-1.2-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/log4j-1.2-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/log4j-core-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/log4j-api-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/log4j-core-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/log4j-api-2.13.3.jar"
   )
@@ -242,7 +260,10 @@ for SPSS_APP_BUNDLE in "${SPSS_APP_BUNDLES[@]}"; do
   echo "SPSS Version: ${SPSS_VERSION}"
 
   case "${SPSS_VERSION}" in
-    28.0*)
+    28.0.1*)
+      fix28_1
+      ;;
+    28.0.0*)
       fix28
       ;;
     27.0*)
