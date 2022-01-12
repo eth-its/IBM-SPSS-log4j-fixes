@@ -242,10 +242,10 @@ for SPSS_APP_BUNDLE in "${SPSS_APP_BUNDLES[@]}"; do
   echo "SPSS Version: ${SPSS_VERSION}"
 
   case "${SPSS_VERSION}" in
-    28.0.1*)
+    28.0*)
       fix28
       ;;
-    27.0.1*)
+    27.0*)
       fix27
       ;;
     26.0*)

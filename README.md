@@ -2,7 +2,7 @@
 
 Applies the log4j 2.17 fixes recomended by IBM for log4j vulnerabilities (Security bulletin copied below).
 
-There is a prebuilt signed pkg located in the build directory. You can deploy it using whatever means.
+There is a prebuilt unsigned pkg located in the build directory. You can deploy it using whatever means.
 
 ** created using [munkipkg](https://github.com/munki/munki-pkg)
 
