@@ -197,7 +197,7 @@ fix28() {
   )
 }
 
-fix27() {
+fix27_1() {
   VUL_PATHS=(
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/"
@@ -210,6 +210,24 @@ fix27() {
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-1.2-api-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/log4j-core-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.2.3.0/lib/log4j-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/log4j-1.2.17.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.tm1.9/log4j-1.2.16.jar"
+  )
+}
+
+fix27() {
+  VUL_PATHS=(
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.1.1.0/lib/"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.tm1.9/"
+  )
+  VUL_FILES=(
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-core-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/log4j-1.2-api-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.1.1.0/lib/log4j-core-2.13.3.jar"
+    "${SPSS_HOME}/SPSS Statistics.app/Contents/bin/as-3.1.1.0/lib/log4j-api-2.13.3.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.cognos.9/log4j-1.2.17.jar"
     "${SPSS_HOME}/SPSS Statistics.app/Contents/common/ext/bin/spss.tm1.9/log4j-1.2.16.jar"
   )
@@ -266,7 +284,10 @@ for SPSS_APP_BUNDLE in "${SPSS_APP_BUNDLES[@]}"; do
     28.0.0*)
       fix28
       ;;
-    27.0*)
+    27.0.1*)
+      fix27_1
+      ;;
+    27.0.0*)
       fix27
       ;;
     26.0*)
